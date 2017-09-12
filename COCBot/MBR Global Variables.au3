@@ -448,6 +448,11 @@ Global $g_iBotLaunchOption_Help = False ; If specified, bot just shows command l
 Global $g_asCmdLine[1] = [0] ; Clone of $CmdLine without options, please use instead of $CmdLine
 Global Const $g_sWorkingDir = @WorkingDir ; Working Directory at bot launch
 
+; auto hide emulator after start
+Global $chkAutoHideEmulator
+Global $g_bChkAutoHideEmulator = False
+Global $g_bFlagHideEmulator = False
+
 ; Mutex Handles
 Global $g_hMutex_BotTitle = 0
 Global $g_hMutex_Profile = 0
