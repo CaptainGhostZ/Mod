@@ -143,8 +143,15 @@ Func GoldElixirChangeEBO()
 				SetLog("Exit in " & $txtDiff & ", [G]: " & $Gold2 & " [E]: " & $Elixir2 & " [DE]: " & $DarkElixir2 & " [%]: " & $CurDamage & ", Suspend-Time: " & $g_iSuspendAndroidTime & ", Suspend-Count: " & $g_iSuspendAndroidTimeCount &  ", Offset: " & $iSuspendAndroidTimeOffset, $COLOR_INFO)
 			Else
 				SetLog("Exit in " & $txtDiff & ", [G]: " & $Gold2 & " [E]: " & $Elixir2 & " [DE]: " & $DarkElixir2 & " [%]: " & $CurDamage, $COLOR_INFO)
+			;xbenk
+			If ($CurDamage > 0 ) Then
+				$eLootPerc = $CurDamage
+				if($CurDamage = 4) Then
+					$eLootPerc = 74
+				EndIf	
 			EndIf
 		EndIf
+	EndIf	
 
 		If Number($CurDamage) >= 92 Then
 			If ($g_bCheckKingPower = True Or $g_bCheckQueenPower = True Or $g_bCheckWardenPower = True) And $g_iActivateKQCondition = "Auto" Then
