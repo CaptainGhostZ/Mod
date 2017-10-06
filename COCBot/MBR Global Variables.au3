@@ -577,10 +577,10 @@ Global $g_iMatchMode = 0 ; 0 Dead / 1 Live / 2 TH Snipe / 3 Milking Attack / 4 T
 Global Const $g_asModeText[6] = ["Dead Base", "Live Base", "TH Snipe", "Milking Attack", "TH Bully", "Drop Trophy"]
 
 ;xbenk
-Global $btnAttNowLB
-Global $eLootPerc = 0
-Global $starsearned = 0
-Global $eTHLevel = "-"
+Global $btnAttNowLB, $eLootPerc = "---", $starsearned = 0, $eTHLevel = "-", $g_iTotalSearchTime = 0, $g_iCloudTimer = 0
+
+;xbenk ~ notify
+Global $eWinlose = "-"
 
 ; Troops
 Global Enum $eTroopBarbarian, $eTroopArcher, $eTroopGiant, $eTroopGoblin, $eTroopWallBreaker, $eTroopBalloon, _
