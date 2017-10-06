@@ -274,10 +274,13 @@ EndFunc   ;==>SetAtkLog
 
 ;xbenk
 Func AtkLogHead()
-    Local $Text = ""
+	Local $Text = ""
+	Local $Text1 = ""
+	Local $Text2 = ""
 	SetAtkLog(_PadStringCenter(" " & GetTranslatedFileIni("MBR Func_AtkLogHead", "AtkLogHead_Text_01", "ATTACK LOG") & " ", 71, "="), "", $COLOR_BLACK, "MS Shell Dlg", 8.5)
 	SetAtkLog(GetTranslatedFileIni("MBR Func_AtkLogHead", "AtkLogHead_Text_02", '|                                 ---- LOOT ---- ---- BONUS ----'), "")
-	SetAtkLog($Text & GetTranslatedFileIni("MBR Func_AtkLogHead", "AtkLogHead_Text_03", 'TIME |TROP|SRC|TH|TR|[%]|TR.|S|GOLD|ELIX|  DE|GOLD|ELIX|  DE|L.|Account'), "")
+	SetAtkLog($Text & GetTranslatedFileIni("MBR Func_AtkLogHead", "AtkLogHead_Text_03", '|TIME |TROP|SRC|CLOUD|TH|TR|[%]|TR.|S|GOLD|ELIX|  DE|GOLD|ELIX|  DE|L.' & $Text2), "")
+	;---------------------------------------------------------------
 EndFunc   ;==>AtkLogHead
 
 Func __FileWriteLog($handle, $text)

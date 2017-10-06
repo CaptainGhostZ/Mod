@@ -51,6 +51,10 @@ Func WaitForClouds()
 	Local $hMinuteTimer = __TimerInit() ; initialize timer for tracking search time
 
 	While $g_bRestart = False And _CaptureRegions() And _CheckPixel($aNoCloudsAttack) = False ; loop to wait for clouds to disappear
+		If __TimerDiff($g_iCloudTimer) > 0 Then
+			$g_iTotalSearchTime = __TimerDiff($g_iCloudTimer)/60000
+		EndIf
+		
 		If _Sleep($DELAYGETRESOURCES1) Then Return
 		$iCount += 1
 		If isProblemAffect(True) Then ; check for reload error messages and restart search if needed
@@ -84,7 +88,7 @@ Func WaitForClouds()
 		If $g_iDebugSetlog = 1 Then _GUICtrlStatusBar_SetText($g_hStatusBar, " Status: Loop to clean screen without Clouds, # " & $iCount)
 		$iSearchTime = __TimerDiff($hMinuteTimer) / 60000 ;get time since minute timer start in minutes
 		If $iSearchTime >= $iLastTime + 1 Then
-			Setlog("Cloud wait time " & StringFormat("%.1f", $iSearchTime) & " minute(s)", $COLOR_INFO)
+        Setlog("Cloud wait time " & StringFormat("%.1f", $iSearchTime) & " minute(s), Total Searchtime = " & Round($g_iTotalSearchTime,2) & " minute(s)", $COLOR_INFO)						  
 			$iLastTime += 1
 			; once a minute safety checks for search fail/retry msg and Personal Break events and early detection if CoC app has crashed inside emulator (Bluestacks issue mainly)
 			If chkAttackSearchFail() = 2 Or chkAttackSearchPersonalBreak() = True Or GetAndroidProcessPID() = 0 Then

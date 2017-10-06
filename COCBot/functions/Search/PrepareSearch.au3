@@ -16,6 +16,7 @@
 Func PrepareSearch() ;Click attack button and find match button, will break shield
 
 	SetLog("Going to Attack...", $COLOR_INFO)
+	$g_iCloudTimer = __TimerInit()						   
 
 	ChkAttackCSVConfig()
 

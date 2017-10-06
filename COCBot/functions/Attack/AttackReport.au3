@@ -169,11 +169,26 @@ Func AttackReport()
 	If _ColorCheck(_GetPixelColor($aWonThreeStarAtkRprt[0], $aWonThreeStarAtkRprt[1], True), Hex($aWonThreeStarAtkRprt[2], 6), $aWonThreeStarAtkRprt[3]) Then $starsearned += 1
 	SetLog("Stars earned: " & $starsearned)
 
-	;xbenk
+	;xbenk ~ notify
+	If $starsearned >= 1 Then
+		$eWinlose = "VICTORY"
+	Else
+		$eWinlose = "DEFEAT"
+	EndIf
+	
+	;xbenk ~ atklog ~ content
 	Local $AtkLogTxt
-	$AtkLogTxt = "" & _NowTime(4) & "|"
+	$AtkLogTxt = "|" & _NowTime(4) & "|"
 	$AtkLogTxt &= StringFormat("%4d", $g_aiCurrentLoot[$eLootTrophy]) & "|"
 	$AtkLogTxt &= StringFormat("%3d", $g_iSearchCount) & "|"
+	Local $l_iTotalSearchTime = 0
+	If $g_iTotalSearchTime > 60 Then
+		$l_iTotalSearchTime = $g_iTotalSearchTime/60
+		$AtkLogTxt &= StringFormat("%4d", StringFormat("%.1f",$l_iTotalSearchTime)) & "h|"
+	Else
+		$AtkLogTxt &= StringFormat("%4d", StringFormat("%.1f",$g_iTotalSearchTime)) & "m|"
+	EndIf	
+	
 	$AtkLogTxt &= StringFormat("%2d", $eTHLevel) & "|"
 	$AtkLogTxt &= StringFormat("%2d", $g_iSearchTrophy) & "|"
 	If ($eLootPerc = 100) Then
