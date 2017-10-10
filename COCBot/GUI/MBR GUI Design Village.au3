@@ -19,6 +19,7 @@ Global $g_hGUI_VILLAGE = 0
 #include "MBR GUI Design Child Village - Misc.au3"
 #include "MBR GUI Design Child Village - Donate.au3"
 #include "MBR GUI Design Child Village - Upgrade.au3"
+#include "MOD GUI Design - AutoUpgrade.au3"
 #include "MBR GUI Design Child Village - Achievements.au3"
 #include "MBR GUI Design Child Village - Notify.au3"
 

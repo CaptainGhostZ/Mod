@@ -56,6 +56,8 @@ Func applyConfig($bRedrawAtExit = True, $TypeReadSave = "Read") ;Applies the dat
 	ApplyConfig_600_15($TypeReadSave)
 	; <><><><> Village / Upgrade - Buildings <><><><>
 	ApplyConfig_600_16($TypeReadSave)
+	; <><><><> Village / Upgrade - Auto Upgrade <><><><>
+	ApplyConfig_auto($TypeReadSave)
 	; <><><><> Village / Upgrade - Walls <><><><>
 	ApplyConfig_600_17($TypeReadSave)
 	; <><><><> Village / Notify <><><><>
@@ -538,6 +540,35 @@ Func ApplyConfig_600_16($TypeReadSave)
 			$g_iUpgradeMinDark = Number(GUICtrlRead($g_hTxtUpgrMinDark))
 	EndSwitch
 EndFunc   ;==>ApplyConfig_600_16
+
+Func ApplyConfig_auto($TypeReadSave)
+; Auto Upgrade
+    Switch $TypeReadSave
+	    Case "Read"
+			GUICtrlSetState($g_chkAutoUpgrade, $g_ichkAutoUpgrade = 1 ? $GUI_CHECKED : $GUI_UNCHECKED)
+			For $i = 0 To 12
+				GUICtrlSetState($g_chkUpgradesToIgnore[$i], $g_ichkUpgradesToIgnore[$i] = 1 ? $GUI_CHECKED : $GUI_UNCHECKED)
+			Next
+			For $i = 0 To 2
+				GUICtrlSetState($g_chkResourcesToIgnore[$i], $g_ichkResourcesToIgnore[$i] = 1 ? $GUI_CHECKED : $GUI_UNCHECKED)
+			Next
+			GUICtrlSetData($g_SmartMinGold, $g_iSmartMinGold)
+			GUICtrlSetData($g_SmartMinElixir, $g_iSmartMinElixir)
+			GUICtrlSetData($g_SmartMinDark, $g_iSmartMinDark)
+			chkAutoUpgrade()
+		Case "Save"
+			$g_ichkAutoUpgrade = GUICtrlRead($g_chkAutoUpgrade) = $GUI_CHECKED ? 1 : 0
+			For $i = 0 To 12
+				$g_ichkUpgradesToIgnore[$i] = GUICtrlRead($g_chkUpgradesToIgnore[$i]) = $GUI_CHECKED ? 1 : 0
+			Next
+			For $i = 0 To 2
+				$g_ichkResourcesToIgnore[$i] = GUICtrlRead($g_chkResourcesToIgnore[$i]) = $GUI_CHECKED ? 1 : 0
+			Next
+			$g_iSmartMinGold = GUICtrlRead($g_SmartMinGold)
+			$g_iSmartMinElixir = GUICtrlRead($g_SmartMinElixir)
+			$g_iSmartMinDark = GUICtrlRead($g_SmartMinDark)	
+    EndSwitch			
+EndFunc   ;==>ApplyConfig_auto
 
 Func ApplyConfig_600_17($TypeReadSave)
 	; <><><><> Village / Upgrade - Walls <><><><>

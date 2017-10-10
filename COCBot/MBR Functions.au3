@@ -294,3 +294,7 @@
 ;#include "functions\Village\ClanLevel.au3"
 ;#include "functions\Village\LocateSpell.au3"
 ;#include "functions\Other\UpdateStatsWall.au3"
+
+; Auto Upgrade
+#include "functions\Mod's\Auto Upgrade.au3"
+#include "functions\Mod's\QuickMIS.au3"
