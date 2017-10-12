@@ -298,3 +298,7 @@
 ; Auto Upgrade
 #include "functions\Mod's\Auto Upgrade.au3"
 #include "functions\Mod's\QuickMIS.au3"
+
+; BuilderBase Auto Upgrade
+#include "functions\Mod's\SuggestedUpgrades.au3"
+#include "functions\Mod's\BuilderBaseReport.au3"

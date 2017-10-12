@@ -1085,7 +1085,9 @@ Func _RunFunction($action)
 		Case "BuilderBase"
 			If isOnBuilderIsland() Or (($g_bChkCollectBuilderBase Or $g_bChkStartClockTowerBoost) And SwitchBetweenBases()) Then
 				CollectBuilderBase()
+				BuilderBaseReport()
 				StartClockTowerBoost()
+				MainSuggestedUpgradeCode()
 				; switch back to normal village
 				SwitchBetweenBases()
 			EndIf
