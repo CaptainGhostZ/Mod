@@ -698,7 +698,6 @@ Func runBot() ;Bot that runs everything in order
 					If Unbreakable() = True Then ContinueLoop
 				EndIf
 			EndIf
-			AutoUpgrade()
 			Local $aRndFuncList = ['Laboratory', 'UpgradeHeroes', 'UpgradeBuilding', 'BuilderBase']
 			While 1
 				If $g_bRunState = False Then Return
@@ -1078,6 +1077,9 @@ Func _RunFunction($action)
 			If _Sleep($DELAYRUNBOT3) = False Then checkMainScreen(False)
 		Case "UpgradeHeroes"
 			UpgradeHeroes()
+			_Sleep($DELAYRUNBOT3)
+			; Auto Upgrade Starts After Heroes Upgrade
+ 			AutoUpgrade()
 			_Sleep($DELAYRUNBOT3)
 		Case "UpgradeBuilding"
 			UpgradeBuilding()
