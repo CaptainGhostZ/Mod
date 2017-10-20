@@ -485,6 +485,10 @@ Global Const $g_sIcnMBisland = @ScriptDir & "\Images\bbico.png"
 Global Const $g_sIcnBldGold = @ScriptDir & "\Images\gold.png"
 Global Const $g_sIcnBldElixir = @ScriptDir & "\Images\elixir.png"
 Global Const $g_sIcnBldTrophy = @ScriptDir & "\Images\trophy.png"
+Global Const $g_sIcnGrayShield = @ScriptDir & "\Images\gray.png"
+Global Const $g_sIcnBlueShield = @ScriptDir & "\Images\blue.png"
+Global Const $g_sIcnGreenShield = @ScriptDir & "\Images\green.png"
+Global Const $g_sIcnRedShield = @ScriptDir & "\Images\red.png"
 
 ; Improve GUI interactions by disabling bot window redraw
 Global $g_iRedrawBotWindowMode = 2 ; 0 = disabled, 1 = Redraw always entire bot window, 2 = Redraw only required bot window area (or entire bot if control not specified)

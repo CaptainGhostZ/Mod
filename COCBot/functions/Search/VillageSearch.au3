@@ -13,7 +13,8 @@
 ; Link ..........: https://github.com/MyBotRun/MyBot/wiki
 ; Example .......: No
 ; ===============================================================================================================================
-
+Global $g_KingSaveState = 0, $g_QueenSaveState = 0, $g_WardenSaveState = 0, $g_LabSaveState = 0 ; Display GUI bottom 80 showing, 96 hide
+; exmaple $g_KingSaveState = GUICtrlGetState ($g_hPicKingGray ) 80 showing, 96 hide
 Func VillageSearch()
 
 	$g_bVillageSearchActive = True
@@ -69,11 +70,57 @@ Func _VillageSearch() ;Control for searching a village that meets conditions
 	EndIf
 
 	If $g_bSearchAttackNowEnable Then
+	    $g_KingSaveState = 0
+		$g_QueenSaveState = 0
+		$g_WardenSaveState = 0
+		$g_LabSaveState = 0
+		;preserve icon states
+		For $x = $g_hPicKingGray to $g_hPicKingRed
+			If GUICtrlGetState($x) = 80 then
+				$g_KingSaveState = $x
+			EndIf
+		Next
+		If $g_KingSaveState = 0 Then
+			$g_KingSaveState = $g_hPicKingGray
+		EndIf
+
+		For $x = $g_hPicQueenGray to $g_hPicQueenRed
+			If GUICtrlGetState($x) = 80 then
+				$g_QueenSaveState = $x
+			EndIf
+		Next
+		If $g_QueenSaveState = 0 Then
+			$g_QueenSaveState = $g_hPicQueenGray
+		EndIf
+
+		For $x = $g_hPicWardenGray to $g_hPicWardenRed
+			If GUICtrlGetState($x) = 80 then
+				$g_WardenSaveState = $x
+			EndIf
+		Next
+		If $g_WardenSaveState = 0 Then
+			$g_WardenSaveState = $g_hPicWardenGray
+		EndIf
+
+		For $x = $g_hPicLabGray to $g_hPicLabRed
+			If GUICtrlGetState($x) = 80 then
+				$g_LabSaveState = $x
+			EndIf
+		Next
+		If $g_LabSaveState = 0 Then
+			$g_LabSaveState = $g_hPicLabGray
+		EndIf
+
+		;hide all to show attack now.
+		For $x = $g_hlblKing to $g_hPicLabRed
+			GUICtrlSetState($x, $GUI_HIDE)
+		Next
 		GUICtrlSetState($g_hBtnAttackNowDB, $GUI_SHOW)
 		GUICtrlSetState($g_hBtnAttackNowLB, $GUI_SHOW)
 		GUICtrlSetState($g_hBtnAttackNowTS, $GUI_SHOW)
-		GUICtrlSetState($g_hPicTwoArrowShield, $GUI_HIDE)
-		GUICtrlSetState($g_hLblVersion, $GUI_HIDE)
+		
+		;GUICtrlSetState($g_hPicTwoArrowShield, $GUI_HIDE)
+		;GUICtrlSetState($g_hLblVersion, $GUI_HIDE)
 	EndIf
 
 	If $g_bIsClientSyncError = False And $g_bIsSearchLimit = False Then
@@ -409,9 +456,25 @@ Func _VillageSearch() ;Control for searching a village that meets conditions
 		GUICtrlSetState($g_hBtnAttackNowDB, $GUI_HIDE)
 		GUICtrlSetState($g_hBtnAttackNowLB, $GUI_HIDE)
 		GUICtrlSetState($g_hBtnAttackNowTS, $GUI_HIDE)
-		GUICtrlSetState($g_hPicTwoArrowShield, $GUI_SHOW)
-		GUICtrlSetState($g_hLblVersion, $GUI_SHOW)
+		;GUICtrlSetState($g_hPicTwoArrowShield, $GUI_SHOW)
+		;GUICtrlSetState($g_hLblVersion, $GUI_SHOW)
 		$g_bBtnAttackNowPressed = False
+
+		; restore icon gui
+		GUICtrlSetState($g_KingSaveState, $GUI_SHOW)
+		GUICtrlSetState($g_QueenSaveState, $GUI_SHOW)
+		GUICtrlSetState($g_WardenSaveState, $GUI_SHOW)
+		GUICtrlSetState($g_LabSaveState, $GUI_SHOW)
+
+		GUICtrlSetState($g_hlblKing, $GUI_SHOW)
+		GUICtrlSetState($g_hlblQueen, $GUI_SHOW)
+		GUICtrlSetState($g_hlblWarden, $GUI_SHOW)
+		GUICtrlSetState($g_hlblLab, $GUI_SHOW)
+		;reset savestates to 0
+		$g_KingSaveState = 0
+		$g_QueenSaveState = 0
+		$g_WardenSaveState = 0
+		$g_LabSaveState = 0
 	EndIf
 
 	;--- write in log match found ----
