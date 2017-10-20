@@ -677,7 +677,7 @@ Func runBot() ;Bot that runs everything in order
 			If $g_bRunState = False Then Return
 			If $g_bRestart = True Then ContinueLoop
 			If IsSearchAttackEnabled() Then ; if attack is disabled skip reporting, requesting, donating, training, and boosting
-				Local $aRndFuncList = ['ReplayShare', 'NotifyReport', 'DonateCC,Train', 'BoostBarracks', 'BoostSpellFactory', 'BoostKing', 'BoostQueen', 'BoostWarden', 'RequestCC']
+				Local $aRndFuncList = ['ReplayShare', 'NotifyReport', 'DonateCC,Train', 'BoostBarracks', 'BoostSpellFactory', 'BoostKing', 'BoostQueen', 'BoostWarden', 'RequestCC', 'LabCheck']
 				While 1
 					If $g_bRunState = False Then Return
 					If $g_bRestart = True Then ContinueLoop 2 ; must be level 2 due to loop-in-loop
@@ -1069,6 +1069,9 @@ Func _RunFunction($action)
 			BoostQueen()
 		Case "BoostWarden"
 			BoostWarden()
+		Case "LabCheck"
+			Setlog("Checking Lab Status", $COLOR_INFO)
+			LabGuiDisplay()	
 		Case "RequestCC"
 			RequestCC()
 			If _Sleep($DELAYRUNBOT1) = False Then checkMainScreen(False)
