@@ -113,6 +113,7 @@
 #include "functions\CreateArmy\TrainClick.au3"
 #include "functions\CreateArmy\TrainRevamp.au3"
 #include "functions\CreateArmy\TrainIt.au3"
+#include "functions\CreateArmy\CheckWardenMode.au3"
 
 #include "functions\Image Search\ImageSearch.au3"
 #include "functions\Image Search\checkDeadBase.au3"

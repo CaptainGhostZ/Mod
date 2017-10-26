@@ -968,3 +968,8 @@ Func chkAddDelayIdlePhaseEnable()
 		GUICtrlSetState($i, $g_bTrainAddRandomDelayEnable ? $GUI_ENABLE : $GUI_DISABLE)
 	Next
 EndFunc   ;==>chkAddDelayIdlePhaseEnable
+
+Func chkCheckWardenMode()
+	$g_bCheckWardenMode = (GUICtrlRead($g_hChkCheckWardenMode) = $GUI_CHECKED)
+	GUICtrlSetState($g_hCmbCheckWardenMode, $g_bCheckWardenMode ? $GUI_ENABLE : $GUI_DISABLE)
+EndFunc

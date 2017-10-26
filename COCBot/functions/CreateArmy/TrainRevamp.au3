@@ -216,6 +216,8 @@ Func CheckIfArmyIsReady()
 
 	CheckArmyCamp(False, False, False, True)
 
+	CheckWardenMode()
+
 	If $g_bDebugSetlogTrain Then
 		Setlog(" - $g_CurrentCampUtilization : " & $g_CurrentCampUtilization)
 		Setlog(" - $g_iTotalCampSpace : " & $g_iTotalCampSpace)

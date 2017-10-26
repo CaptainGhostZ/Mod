@@ -1076,6 +1076,9 @@ Func SaveConfig_641_1()
 	_Ini_Add("other", "chkAddIdleTime", $g_bTrainAddRandomDelayEnable ? 1 : 0)
 	_Ini_Add("other", "txtAddDelayIdlePhaseTimeMin", $g_iTrainAddRandomDelayMin)
 	_Ini_Add("other", "txtAddDelayIdlePhaseTimeMax", $g_iTrainAddRandomDelayMax)
+
+	_Ini_Add("other", "chkCheckWardenMode", $g_bCheckWardenMode ? 1 : 0)
+	_Ini_Add("other", "cmbCheckWardenMode", $g_iCheckWardenMode)
 EndFunc   ;==>SaveConfig_641_1
 
 Func IniWriteS($filename, $section, $key, $value)
