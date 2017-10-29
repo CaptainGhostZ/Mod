@@ -241,15 +241,15 @@ Func CreateMiscBuilderBaseSubTab()
 
 	GUICtrlCreateGroup("Builders Base Stats", $x - 10, $y - 20, 442, 50)
 
-		_GUICtrlCreatePic($g_sIcnBldGold, $x, $y - 2, 24, 24)
+		_GUICtrlCreateIcon($g_sLibIconPathMOD, $eIcnBldGold, $x, $y - 2, 24, 24)
 		$g_alblBldBaseStats[$eLootGold] = GUICtrlCreateLabel("---", $x + 35, $y + 2, 100, -1)
 			GUICtrlSetFont(-1, 9, $FW_BOLD, Default, "Arial", $CLEARTYPE_QUALITY)
 
-		_GUICtrlCreatePic($g_sIcnBldElixir, $x + 140, $y - 2, 24, 24)
+		_GUICtrlCreateIcon($g_sLibIconPathMOD, $eIcnBldElixir, $x + 140, $y - 2, 24, 24)
 		$g_alblBldBaseStats[$eLootElixir] = GUICtrlCreateLabel("---", $x + 175, $y + 2, 100, -1)
 			GUICtrlSetFont(-1, 9, $FW_BOLD, Default, "Arial", $CLEARTYPE_QUALITY)
 
-		_GUICtrlCreatePic($g_sIcnBldTrophy, $x + 280, $y - 2, 24, 24)
+		_GUICtrlCreateIcon($g_sLibIconPathMOD, $eIcnBldTrophy, $x + 280, $y - 2, 24, 24)
 		$g_alblBldBaseStats[$eLootTrophy] = GUICtrlCreateLabel("---", $x + 315, $y + 2, 100, -1)
 			GUICtrlSetFont(-1, 9, $FW_BOLD, Default, "Arial", $CLEARTYPE_QUALITY)
 
@@ -278,7 +278,7 @@ Func CreateMiscBuilderBaseSubTab()
 
 	GUICtrlCreateGroup("Suggested Upgrades ", $x - 10, $y - 20, 442, 233)
 
-		_GUICtrlCreatePic($g_sIcnMBisland, $x , $y , 64, 64)
+		_GUICtrlCreateIcon($g_sLibIconPathMOD, $eIcnMBisland, $x , $y , 64, 64)
 		$g_chkBBSuggestedUpgrades = GUICtrlCreateCheckbox("Suggested Upgrades", $x + 70, $y + 25, -1, -1)
 			;GUICtrlSetState(-1, $GUI_UNCHECKED)
 			GUICtrlSetOnEvent(-1, "chkActivateBBSuggestedUpgrades")
