@@ -488,16 +488,9 @@ Global $g_hLibNTDLL = DllOpen("ntdll.dll") ; handle to ntdll.dll, DllClose($g_hL
 Global $g_hLibUser32DLL = DllOpen("user32.dll") ; handle to user32.dll, DllClose($g_hLibUser32DLL) not required
 
 Global Const $g_sLibIconPath = $g_sLibPath & "\MBRBOT.dll" ; icon library
+Global Const $g_sLibIconPathMOD = $g_sLibPath & "\viper.dll" ;Modded icon library
 Global Const $g_sTHSnipeAttacksPath = @ScriptDir & "\CSV\THSnipe"
 Global Const $g_sCSVAttacksPath = @ScriptDir & "\CSV\Attack"
-Global Const $g_sIcnMBisland = @ScriptDir & "\Images\bbico.png"
-Global Const $g_sIcnBldGold = @ScriptDir & "\Images\gold.png"
-Global Const $g_sIcnBldElixir = @ScriptDir & "\Images\elixir.png"
-Global Const $g_sIcnBldTrophy = @ScriptDir & "\Images\trophy.png"
-Global Const $g_sIcnGrayShield = @ScriptDir & "\Images\gray.png"
-Global Const $g_sIcnBlueShield = @ScriptDir & "\Images\blue.png"
-Global Const $g_sIcnGreenShield = @ScriptDir & "\Images\green.png"
-Global Const $g_sIcnRedShield = @ScriptDir & "\Images\red.png"
 
 ; Improve GUI interactions by disabling bot window redraw
 Global $g_iRedrawBotWindowMode = 2 ; 0 = disabled, 1 = Redraw always entire bot window, 2 = Redraw only required bot window area (or entire bot if control not specified)
@@ -526,6 +519,8 @@ Global Enum $eIcnArcher = 1, $eIcnDonArcher, $eIcnBalloon, $eIcnDonBalloon, $eIc
 		$eRussian, $eSpanish, $eTurkish, $eMissingLangIcon, $eWall12, $ePortuguese, $eIcnDonPoisonSpell, $eIcnDonEarthQuakeSpell, $eIcnDonHasteSpell, $eIcnDonSkeletonSpell, $eVietnamese, $eKorean, $eAzerbaijani, _
 		$eArabic, $eIcnElixirCollectorL5, $eIcnClockTower, $eIcnBuilderHall, $eIcnGoldMineL5, $eIcnGemMine
 
+Global Enum $eIcnMBisland = 1, $eIcnBldGold, $eIcnBldElixir, $eIcnBldTrophy, $eIcnGrayShield, $eIcnRedShield, $eIcnGreenShield, $eIcnBlueShield		
+		
 Global $eIcnDonBlank = $eIcnDonBlacklist
 Global $eIcnOptions = $eIcnDonBlacklist
 Global $eIcnAchievements = $eIcnMain
