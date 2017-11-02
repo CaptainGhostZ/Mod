@@ -912,7 +912,6 @@ Func CreateTrainOrderSubTab()
 EndFunc   ;==>CreateTrainOrderSubTab
 
 Func CreateOptionsSubTab()
-<<<<<<< HEAD
 	$g_hGUI_TRAINARMY_TAB_ITEM4 = GUICtrlCreateTabItem(GetTranslatedFileIni("MBR Main GUI", "Tab_03_STab_01_STab_04", "Options"))
 
 	Local $sTxtTip = ""
@@ -1043,17 +1042,16 @@ Func CreateOptionsSubTab()
 	GUICtrlSetLimit(-1, 999)
 	$g_hLblAddDelayIdlePhaseSec = GUICtrlCreateLabel(GetTranslatedFileIni("MBR Global GUI Design", "sec.", "sec."), $x + 110, $y, 20, 30)
 	GUICtrlCreateGroup("", -99, -99, 1, 1)
-EndFunc   ;==>CreateOptionsSubTab
-
- $x = 25 + 151 + 5
-   $y = 125
-   GUICtrlCreateGroup("Check Grand Warden Mode", $x - 20, $y - 20, 173, 50)
-	  $g_hChkCheckWardenMode = GUICtrlCreateCheckbox("Check Mode:", $x - 10, $y)
-			GUICtrlSetOnEvent(-1, "chkCheckWardenMode")
-			_GUICtrlSetTip(-1, "Enable this Option if you want to check in which Mode the Grand Warden is and change if needed")
-	  $g_hCmbCheckWardenMode = GUICtrlCreateCombo("", $x + 80, $y, 60, 18, BitOR($CBS_DROPDOWNLIST, $CBS_AUTOHSCROLL))
-			GUICtrlSetState(-1, $GUI_DISABLE)
-			GUICtrlSetData(-1, "Ground|Air", "Ground")
-			_GUICtrlSetTip(-1, "Select the Mode your Warden needs to have for attacks")
-   GUICtrlCreateGroup("", -99, -99, 1, 1)
+    
+	$x = 25 + 151 + 5
+    $y = 125
+    GUICtrlCreateGroup("Check Grand Warden Mode", $x - 20, $y - 20, 173, 50)
+	$g_hChkCheckWardenMode = GUICtrlCreateCheckbox("Check Mode:", $x - 10, $y)
+	GUICtrlSetOnEvent(-1, "chkCheckWardenMode")
+	_GUICtrlSetTip(-1, "Enable this Option if you want to check in which Mode the Grand Warden is and change if needed")
+	$g_hCmbCheckWardenMode = GUICtrlCreateCombo("", $x + 80, $y, 60, 18, BitOR($CBS_DROPDOWNLIST, $CBS_AUTOHSCROLL))
+	GUICtrlSetState(-1, $GUI_DISABLE)
+	GUICtrlSetData(-1, "Ground|Air", "Ground")
+	_GUICtrlSetTip(-1, "Select the Mode your Warden needs to have for attacks")
+    GUICtrlCreateGroup("", -99, -99, 1, 1)
 EndFunc
