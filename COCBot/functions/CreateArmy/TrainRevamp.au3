@@ -43,6 +43,9 @@ Func TrainRevamp()
 	CheckIfArmyIsReady()
 
 	If Not $g_bRunState Then Return
+	
+	ResetVariables("donated")
+	EndGainCost("Train")
 
 	If $g_bIsFullArmywithHeroesAndSpells Or ($g_CurrentCampUtilization = 0 And $g_bFirstStart) Then
 
@@ -1860,6 +1863,11 @@ Func ResetVariables($sArmyType = "")
 			If Not $g_bRunState Then Return
 			$g_aiDonateTroops[$i] = 0
 			If _Sleep($DELAYTRAIN6) Then Return ; '20' just to Pause action
+		Next
+		For $i = 0 To $eSpellCount - 1			; fixed making wrong donated spells
+			If $g_bRunState = False Then Return
+			$g_aiDonateSpells[$i] = 0
+			If _Sleep($DELAYTRAIN6) Then Return
 		Next
 	EndIf
 

@@ -83,7 +83,7 @@ Func CreateLogTab($hWHndLogsOnly = False)
 	GUICtrlSetOnEvent(-1, "cmbLog")
 	
 	;xbenk
-    $btnAttNowLB = GUICtrlCreateButton(GetTranslatedFileIni("MBR GUI Design Log", "BtnAttack", "Attack"), $x+225, $y-1, 44, 23)
+    $btnAttNowLB = GUICtrlCreateButton(GetTranslatedFileIni("MBR GUI Design Log", "BtnAttack", "Attack"), $x+229, $y-1, 44, 23)
 				GUICtrlSetOnEvent(-1, "AttackNowLB")
 
 	$g_hBtnAtkLogClear = GUICtrlCreateButton(GetTranslatedFileIni("MBR GUI Design Log", "BtnAtkLogClear", "Clear Atk. Log"), $x + 270, $y - 1, 80, 23)

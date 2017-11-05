@@ -506,7 +506,14 @@ Func DonateCC($Check = False)
 	WEnd
 
 	UpdateStats()
-
+	
+	If _Sleep($DELAYDONATECC2) Then Return
+	
+	OpenArmyWindow()
+	MakingDonatedTroops()
+	ClickP($aAway, 1, 0, "#0176")
+	ResetVariables("donated")
+	
 	If _Sleep($DELAYDONATECC2) Then Return
 
 EndFunc   ;==>DonateCC
@@ -640,8 +647,6 @@ Func DonateTroopType(Const $iTroopIndex, $Quant = 0, Const $Custom = False, Cons
 				setlog("coordinate: " & 365 + ($Slot * 68) & "," & $g_iDonationWindowY + 100 + $YComp, $COLOR_ERROR)
 				debugimagesave("LiveDonateCC-r" & $donaterow & "-c" & $donateposinrow & "-" & $g_asTroopNames[$iTroopIndex] & "_")
 			EndIf
-
-			If $g_bDebugOCRdonate Then
 				; Use slow click when the Train system is Quicktrain
 				If $g_bQuickTrainEnable Then
 					Local $icount = 0
@@ -684,7 +689,6 @@ Func DonateTroopType(Const $iTroopIndex, $Quant = 0, Const $Custom = False, Cons
 						$g_bSkipDonTroops = True
 					EndIf
 				EndIf
-			EndIf
 
 		Else
 			If $g_bDebugOCRdonate Then
